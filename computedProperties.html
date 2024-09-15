@@ -19,6 +19,7 @@
       <input 
         @keyup.enter="saveItem" 
         type="text" v-model="newItem" placeholder = "Add an Item">
+        <p class="counter">{{characterCount}}/200</p>
       <label>
         <input type="checkbox" v-model="newItemHighPriority">
         High Priority
@@ -59,6 +60,9 @@
         }
       },
       computed:{
+        characterCount(){
+            return this.newItem.length
+        },
         reversedItems(){
           return [...this.items].reverse()
         }
